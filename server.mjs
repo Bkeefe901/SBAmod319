@@ -2,6 +2,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './db/conn.mjs';
+import userRoutes from './routes/userRoute.mjs'
 
 
 
@@ -16,6 +17,7 @@ connectDB();
 app.use(express.json());
 
 // Routes
+app.use("/api/users", userRoutes)
 
 // Global Error-Handling Middleware
 app.use((err, req, res, next)=>{
