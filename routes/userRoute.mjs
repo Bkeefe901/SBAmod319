@@ -1,7 +1,28 @@
 import express from 'express';
 import User from '../models/userSchema.mjs';
+import { users } from '../data/data.mjs';
 
 const router = express.Router();
+
+
+
+
+router.route("/seed")
+    .get(async (req, res) => {
+        try {
+            // Load DB
+            await User.create(users);
+
+            res.send("Data Sucessfully seeded");
+        } catch (error) {
+            console.error(error.message);
+        }
+    })
+
+
+
+
+
 
 // Create
 router.route("/")
@@ -13,7 +34,7 @@ router.route("/")
             res.json(newUser);
         } catch (err) {
             console.error(err.message);
-            res.status(500).json({msg: `❌ Error - ${err.message}`});
+            res.status(500).json({ msg: `❌ Error - ${err.message}` });
         }
 
     })
@@ -27,7 +48,7 @@ router.route("/")
 
         } catch (err) {
             console.error(err.message);
-            res.status(500).json({msg: `❌ Error - ${err.message}`});
+            res.status(500).json({ msg: `❌ Error - ${err.message}` });
         }
     })
 
@@ -45,11 +66,11 @@ router.route("/:id")
 
         } catch (err) {
             console.error(err.message);
-            res.status(500).json({msg: `❌ Error - ${err.message}`});
+            res.status(500).json({ msg: `❌ Error - ${err.message}` });
         }
     })
-// Delete
-    .delete(async (req, res)=>{
+    // Delete
+    .delete(async (req, res) => {
         try {
             // Perform Action
             let deletedUser = await User.findByIdAndDelete(req.params.id);
@@ -58,7 +79,7 @@ router.route("/:id")
 
         } catch (err) {
             console.error(err.message);
-            res.status(500).json({msg: `❌ Error - ${err.message}`});
+            res.status(500).json({ msg: `❌ Error - ${err.message}` });
         }
     })
 
