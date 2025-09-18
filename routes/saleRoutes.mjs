@@ -17,4 +17,22 @@ router.route("/seed")
     })
 
 
+router.route("/")
+    .post(async (req, res)=>{
+        try{
+            let sale = await Sale.create(req.body);
+
+            res.json(sale);
+        } catch(err){
+            console.error(err.message);
+            res.status(500).json({msg: `❌ Error - ${err.message}`});
+        }
+        
+    })
+
+
+
+
+
+
 export default router;

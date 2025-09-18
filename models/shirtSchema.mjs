@@ -36,6 +36,9 @@ const shirtSchema = new mongoose.Schema({
     price: {type: Number, required: true}
 });
 
+// Price Index
+shirtSchema.index({ price: -1 });
+
 
 
 export default mongoose.model('Shirt', shirtSchema);
