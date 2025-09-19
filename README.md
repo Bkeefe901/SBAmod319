@@ -8,4 +8,12 @@ This project is a database for an online t-shirt store. It has 3 collections: Us
 Check in between each url to make sure that that data collection has been loaded to your mongoDB.
 
 Once you have sucessfully loaded them you can play around with the databases with the following table of routes using the Postman or Thunderclient extensions in VScode:
+(Don't forget to check validation rules for post and put methods in the Schema files in the models folder)
 
+| Method | Route | Description |
+|--------|--------|--------|
+| GET | localhost:3000/api/sales | Returns all sales data |
+| POST | localhost:3000/api/sales | Adds your newly created sales document to the db |
+| GET | localhost:3000/api/sales/:id | Returns a single sales document matching the id you pass in |
+| PUT | localhost:3000/api/sales/:id | Corrects whatever data you want for the sales doc that matches the id |
+| DELETE | localhost:3000/api/sales/:id | Deletes the doc that matcheds the id you pass in |
