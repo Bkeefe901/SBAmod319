@@ -4,30 +4,96 @@ import Sale from '../models/saleSchema.mjs';
 
 const router = express.Router();
 
-router.route("/seed")
+
+// Seeding data (uncomment-out and use route to seed your database)
+
+// router.route("/seed")
+//     .get(async (req, res) => {
+//         try {
+//             // Load DB
+//             await Sale.create(sales);
+
+//             res.send("Data Sucessfully seeded");
+//         } catch (error) {
+//             console.error(error.message);
+//         }
+//     })
+
+// Create
+router.route("/")
+    .post(async (req, res) => {
+        try {
+            let sale = await Sale.create(req.body);
+
+            res.json(sale);
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({ msg: `❌ Error - ${err.message}` });
+        }
+
+    })
+    // Read
+    // Get all sales data
     .get(async (req, res) => {
         try {
-            // Load DB
-            await Sale.create(sales);
+            let sales = await Sale.find({});
 
-            res.send("Data Sucessfully seeded");
-        } catch (error) {
-            console.error(error.message);
+            res.json(sales);
+
+
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({ msg: `❌ Error - ${err.message}` });
+
         }
     })
 
 
-router.route("/")
-    .post(async (req, res)=>{
-        try{
-            let sale = await Sale.create(req.body);
+// Read 
+// Get one sale document
+router.route("/:id")
+    .get(async (req, res) => {
+        try {
+            let sale = await Sale.findById(req.params.id);
 
             res.json(sale);
-        } catch(err){
+
+        } catch (err) {
             console.error(err.message);
-            res.status(500).json({msg: `❌ Error - ${err.message}`});
+            res.status(500).json({ msg: `❌ Error - ${err.message}` });
+
         }
-        
+
+    })
+    // Update
+    .put(async (req, res) => {
+        try {
+            let updatedSale = await Sale.findByIdAndUpdate(
+                req.params.id,
+                req.body,
+                { new: true, runValidators: true }
+            );
+
+            res.json(updatedSale);
+
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({ msg: `❌ Error - ${err.message}` });
+
+        }
+    })
+    // Delete
+    .delete(async (req, res) => {
+        try {
+            let deletedSale = await Sale.findByIdAndDelete(req.params.id);
+
+            res.json(deletedSale);
+
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({ msg: `❌ Error - ${err.message}` });
+
+        }
     })
 
 

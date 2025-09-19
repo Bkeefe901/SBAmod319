@@ -5,19 +5,19 @@ import { users } from '../data/data.mjs';
 const router = express.Router();
 
 
+// Seeding data (uncomment-out and use route to seed your database)
 
+// router.route("/seed")
+//     .get(async (req, res) => {
+//         try {
+//             // Load DB
+//             await User.create(users);
 
-router.route("/seed")
-    .get(async (req, res) => {
-        try {
-            // Load DB
-            await User.create(users);
-
-            res.send("Data Sucessfully seeded");
-        } catch (error) {
-            console.error(error.message);
-        }
-    })
+//             res.send("Data Sucessfully seeded");
+//         } catch (error) {
+//             console.error(error.message);
+//         }
+//     })
 
 
 
@@ -54,12 +54,31 @@ router.route("/")
 
 
 
-// Update
+
 router.route("/:id")
+// Read
+// Get one user by id
+    .get(async (req, res)=>{
+        try {
+            let user = await User.findById(req.params.id);
+
+            res.json(user);
+
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({ msg: `❌ Error - ${err.message}` });
+        }
+    })
+
+// Update
     .put(async (req, res) => {
         try {
             // Perform Action
-            let updatedUser = await User.findByIdAndUpdate(req.params.id, req.body);
+            let updatedUser = await User.findByIdAndUpdate(
+                req.params.id, 
+                req.body, 
+                { new: true, runValidators: true}
+            );
 
             // Return Result
             res.json(updatedUser);
@@ -91,11 +110,3 @@ export default router;
 
 
 
-try {
-    // Perform Action
-
-    // Return Result
-
-} catch (err) {
-    console.error(err.message);
-}
