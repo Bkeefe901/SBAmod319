@@ -52,7 +52,20 @@ router.route("/")
         }
     })
 
+// Read
+// Get route for the userEmail index
+router.route("/email")
+    .get(async (req, res)=>{
+        try {
+            const emails = await User.find({}, { email: 1, _id: 0 });
 
+            res.json(emails);
+            
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({msg: `❌ Error - ${err.message}`})
+        }
+    })
 
 
 router.route("/:id")

@@ -27,3 +27,4 @@ Once you have sucessfully loaded them you can play around with the databases wit
 | GET | localhost:3000/api/users/:id | Returns a single users document matching the id you pass in |
 | PUT | localhost:3000/api/users/:id | Corrects whatever data you want for the users doc that matches the id passed in the url |
 | DELETE | localhost:3000/api/users/:id | Deletes the doc that matcheds the id you pass in |
+| GET | localhost:3000/api/users/email | Returns only the emails of all users (from the index created in the userSchema) |
