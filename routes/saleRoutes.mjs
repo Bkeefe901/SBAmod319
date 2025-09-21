@@ -1,6 +1,6 @@
 import express from 'express';
-import { sales } from '../data/data.mjs';
 import Sale from '../models/saleSchema.mjs';
+import { sales } from '../data/data.mjs';
 
 const router = express.Router();
 

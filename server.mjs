@@ -5,6 +5,7 @@ import connectDB from './db/conn.mjs';
 import userRoutes from './routes/userRoute.mjs';
 import shirtRoutes from './routes/shirtRoutes.mjs';
 import saleRoutes from './routes/saleRoutes.mjs';
+import globalErr from './middleware/globalErr.mjs';
 
 
 
@@ -26,9 +27,7 @@ app.use("/api/shirts", shirtRoutes);
 app.use("/api/sales", saleRoutes);
 
 // Global Error-Handling Middleware
-app.use((err, req, res, next)=>{
-    res.status(500).json({msg: `❌ Error - ${err.message}`});
-})
+app.use(globalErr);
 
 // Listener
 app.listen(PORT, ()=>{
