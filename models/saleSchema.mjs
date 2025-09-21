@@ -44,8 +44,9 @@ const saleSchema = new Schema({
 });
 
 
-// Items index for total of all items sold
 
+
+// Items index for total of all items sold
 saleSchema.index({ items: 1 })
 
 
