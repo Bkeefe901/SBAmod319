@@ -17,6 +17,7 @@ Once you have sucessfully loaded them you can play around with the databases wit
 | GET | localhost:3000/api/sales/:id | Returns a single sales document matching the id you pass in |
 | PUT | localhost:3000/api/sales/:id | Corrects whatever data you want for the sales doc that matches the id passed in the url |
 | DELETE | localhost:3000/api/sales/:id | Deletes the doc that matcheds the id you pass in |
+| GET | localhost:3000/api/sales/itemsSold | Returns all items sold from every sale |
 | GET | localhost:3000/api/shirts | Returns all shirts data |
 | POST | localhost:3000/api/shirts | Adds your newly created shirt document to the db |
 | GET | localhost:3000/api/shirts/:id | Returns a single shirts document matching the id you pass in |
