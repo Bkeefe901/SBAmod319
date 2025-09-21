@@ -48,6 +48,21 @@ router.route("/")
         }
     })
 
+// Read 
+// Get index of all items sold
+router.route("/itemsSold")
+    .get(async (req, res)=>{
+        try {
+            const itemsSold = await Sale.find({}, { items: 1, _id: 0 });
+
+            res.json(itemsSold);
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({ msg: `❌ Error - ${err.message}`});
+            
+        }
+    })
+
 
 // Read 
 // Get one sale document
