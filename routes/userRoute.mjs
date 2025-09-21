@@ -5,7 +5,7 @@ import { users } from '../data/data.mjs';
 const router = express.Router();
 
 
-// Seeding data (uncomment-out and use route to seed your database)
+//Seeding data (uncomment-out and use route to seed your database)
 
 // router.route("/seed")
 //     .get(async (req, res) => {

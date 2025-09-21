@@ -1,43 +1,57 @@
 export const users = [
   {
     userName: "alex_jones",
-    email: "alex.jones@example.com"
+    email: "alex.jones@example.com",
+    password: "P@ssword!23"
   },
   {
     userName: "sarah_lee",
-    email: "sarah.lee@example.com"
+    email: "sarah.lee@example.com",
+    password: "dbSecure_2025"
   },
   {
     userName: "mike_williams",
-    email: "mike.williams@example.com"
+    email: "mike.williams@example.com",
+    password: "MySQL#Admin99"
   },
   {
     userName: "emma_smith",
-    email: "emma.smith@example.com"
+    email: "emma.smith@example.com",
+    password: "MongoDB!Test77"
+
   },
   {
     userName: "david_brown",
-    email: "david.brown@example.com"
+    email: "david.brown@example.com",
+    password: "S3rv3r_Access$"
+
   },
   {
     userName: "olivia_johnson",
-    email: "olivia.johnson@example.com"
+    email: "olivia.johnson@example.com",
+    password: "Pr0ject_DB_456"
+
   },
   {
     userName: "chris_miller",
-    email: "chris.miller@example.com"
+    email: "chris.miller@example.com",
+    password: "User!Login2025"
+
   },
   {
     userName: "natalie_davis",
-    email: "natalie.davis@example.com"
+    email: "natalie.davis@example.com",
+    password: "N0deJS_Db!Key"
   },
   {
     userName: "ryan_clark",
-    email: "ryan.clark@example.com"
+    email: "ryan.clark@example.com",
+    password: "Acc3ss#Control"
   },
   {
     userName: "julia_wilson",
-    email: "julia.wilson@example.com"
+    email: "julia.wilson@example.com",
+    password: "QwErTy!7890"
   }
 ]
 
